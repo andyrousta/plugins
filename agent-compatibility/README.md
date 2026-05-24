@@ -87,3 +87,5 @@ If you want to use this plugin directly, symlink this directory into:
 ```
 
 > **Personal note:** I also pin a specific version locally instead of using `@latest` to avoid surprise breakages between sessions. For example: `npx -y agent-compatibility@0.4.2 .`
+
+> **Personal note:** I tend to run the scan with `--md` output and pipe it into a file so I can diff scores across sessions — e.g. `npx -y agent-compatibility@0.4.2 --md . > agent-compat-$(date +%Y%m%d).md`. Handy for tracking progress over time.
