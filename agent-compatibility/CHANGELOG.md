@@ -14,3 +14,5 @@ All notable changes to this plugin will be documented here.
 
 - Keeping a local copy of this changelog to track upstream changes I care about.
 - The rename from `docs-reality-review` to `docs-reliability-review` is a nice fix — "reality" was always a bit ambiguous.
+- Worth watching: the blended score weighting between `Agent Compatibility Score` and `Deterministic Compatibility Score` isn't documented anywhere — need to dig into the source to find the actual ratio.
+- TODO: check if `compatibility-scan-review` still accepts the same input schema as the old `deterministic-scan-review`, or if there's a breaking change I need to handle in my local config.
