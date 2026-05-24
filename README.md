@@ -2,6 +2,8 @@
 
 Official Cursor plugins for popular developer tools, frameworks, and SaaS products. Each plugin is a standalone directory at the repository root with its own `.cursor-plugin/plugin.json` manifest.
 
+> **Personal fork note:** I'm using this primarily to experiment with `orchestrate`, `continual-learning`, and `cli-for-agent`. The table below is kept in sync with upstream.
+
 ## Plugins
 
 | `name` | Plugin | Author | Category | `description` (from marketplace) |
@@ -16,7 +18,7 @@ Official Cursor plugins for popular developer tools, frameworks, and SaaS produc
 | `cursor-sdk` | [Cursor SDK](cursor-sdk/) | Cursor | Developer Tools | Build apps, scripts, CI pipelines, and automations on top of the Cursor TypeScript SDK (@cursor/sdk) — runtime selection, auth, streaming, MCP, error handling, and ready-to-extend integration patterns. |
 | `orchestrate` | [Orchestrate](orchestrate/) | Cursor | Developer Tools | Fan large tasks out across parallel Cursor cloud agents with planners, workers, verifiers, and structured handoffs. |
 
-Author values match each plugin’s `plugin.json` `author.name` (Cursor lists `plugins@cursor.com` in the manifest).
+Author values match each plugin's `plugin.json` `author.name` (Cursor lists `plugins@cursor.com` in the manifest).
 
 ## Repository structure
 
@@ -31,13 +33,5 @@ plugins/
 │   │   └── plugin.json        # Per-plugin manifest
 │   ├── skills/                # Agent skills (SKILL.md with frontmatter)
 │   ├── rules/                 # Cursor rules (.mdc files)
-│   ├── mcp.json               # MCP server definitions
-│   ├── README.md
-│   ├── CHANGELOG.md
-│   └── LICENSE
-└── ...
+│   ├── mc
 ```
-
-## License
-
-MIT
