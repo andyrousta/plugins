@@ -85,3 +85,5 @@ If you want to use this plugin directly, symlink this directory into:
 ```bash
 ~/.cursor/plugins/local/agent-compatibility
 ```
+
+> **Personal note:** I also pin a specific version locally instead of using `@latest` to avoid surprise breakages between sessions. For example: `npx -y agent-compatibility@0.4.2 .`
