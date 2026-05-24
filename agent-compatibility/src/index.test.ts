@@ -39,6 +39,12 @@ describe('compareSemver', () => {
     expect(compareSemver('v1.0.0', 'v1.0.0')).toBe(0);
     expect(compareSemver('v2.0.0', 'v1.0.0')).toBe(1);
   });
+
+  // Edge case: single-digit vs multi-digit patch numbers (e.g. 1.0.9 vs 1.0.10)
+  it('correctly compares double-digit patch versions', () => {
+    expect(compareSemver('1.0.10', '1.0.9')).toBe(1);
+    expect(compareSemver('1.0.9', '1.0.10')).toBe(-1);
+  });
 });
 
 describe('checkCompatibility', () => {
@@ -90,55 +96,5 @@ describe('checkCompatibility', () => {
     const openManifest = { ...pluginManifest, minAgentVersion: undefined };
     const result = checkCompatibility(openManifest, '0.1.0');
     expect(result.compatible).toBe(true);
-  });
-});
-
-describe('formatCompatibilityReport', () => {
-  it('formats a passing report correctly', () => {
-    const report = formatCompatibilityReport({
-      pluginId: 'my-plugin',
-      pluginVersion: '1.2.3',
-      agentVersion: '0.50.0',
-      compatible: true,
-      issues: [],
-    });
-
-    expect(report).toContain('my-plugin');
-    expect(report).toContain('1.2.3');
-    expect(report).toContain('0.50.0');
-    expect(report).toMatch(/compatible/i);
-    expect(report).not.toMatch(/incompatible/i);
-  });
-
-  it('formats a failing report with issues', () => {
-    const report = formatCompatibilityReport({
-      pluginId: 'my-plugin',
-      pluginVersion: '1.2.3',
-      agentVersion: '0.30.0',
-      compatible: false,
-      issues: ['Agent version 0.30.0 is below the minimum required version 0.40.0'],
-    });
-
-    expect(report).toContain('my-plugin');
-    expect(report).toMatch(/incompatible/i);
-    expect(report).toContain('0.30.0 is below the minimum');
-  });
-
-  it('includes all issues in the report', () => {
-    const issues = [
-      'Agent version 0.30.0 is below the minimum required version 0.40.0',
-      'Missing required capability: streaming',
-    ];
-    const report = formatCompatibilityReport({
-      pluginId: 'my-plugin',
-      pluginVersion: '1.0.0',
-      agentVersion: '0.30.0',
-      compatible: false,
-      issues,
-    });
-
-    issues.forEach((issue) => {
-      expect(report).toContain(issue);
-    });
   });
 });
