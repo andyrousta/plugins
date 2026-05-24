@@ -3,6 +3,11 @@
 Official Cursor plugins for popular developer tools, frameworks, and SaaS products. Each plugin is a standalone directory at the repository root with its own `.cursor-plugin/plugin.json` manifest.
 
 > **Personal fork note:** I'm using this primarily to experiment with `orchestrate`, `continual-learning`, and `cli-for-agent`. The table below is kept in sync with upstream.
+>
+> **Local notes:**
+> - `orchestrate` — testing multi-agent fan-out for a monorepo refactor task
+> - `continual-learning` — keeping a personal `AGENTS.md` updated across sessions
+> - `cli-for-agent` — reference while building a small internal CLI at work
 
 ## Plugins
 
@@ -30,8 +35,5 @@ plugins/
 │   └── marketplace.json       # Marketplace manifest (lists all plugins)
 ├── plugin-name/
 │   ├── .cursor-plugin/
-│   │   └── plugin.json        # Per-plugin manifest
-│   ├── skills/                # Agent skills (SKILL.md with frontmatter)
-│   ├── rules/                 # Cursor rules (.mdc files)
-│   ├── mc
+│   │   └── plugin.j
 ```
